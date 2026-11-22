@@ -1,0 +1,137 @@
+event_module,auditbeat_dataset,auditbeat_action,auditbeat_outcome,action,status,change_type,object_category,result,signature
+auditd,auditd,executed,success,allowed,success,,,,Process executed
+auditd,auditd,executed,*,blocked,failure,,,,Process execution failed
+auditd,auditd,ran-command,success,allowed,success,,,,Command run via sudo
+auditd,auditd,ran-command,*,blocked,failure,,,,Command via sudo failed
+auditd,auditd,connected-to,success,allowed,success,,,,Outbound network connection
+auditd,auditd,connected-to,*,blocked,failure,,,,Outbound network connection failed
+auditd,auditd,accepted-connection-from,success,allowed,success,,,,Inbound network connection accepted
+auditd,auditd,accepted-connection-from,*,blocked,failure,,,,Inbound network connection failed
+auditd,auditd,bound-socket,success,,success,,,,Socket bound to local address
+auditd,auditd,bound-socket,*,,failure,,,,Socket bind failed
+auditd,auditd,listen-for-connections,success,,success,,,,Socket listening for connections
+auditd,auditd,listen-for-connections,*,,failure,,,,Socket listen failed
+auditd,auditd,authenticated,success,success,success,,,,PAM authentication succeeded
+auditd,auditd,authenticated,*,failure,failure,,,,PAM authentication failed
+auditd,auditd,logged-in,success,success,success,,,,User logged in
+auditd,auditd,logged-in,*,failure,failure,,,,User login failed
+auditd,auditd,logged-out,success,logoff,success,,,,User logged out
+auditd,auditd,logged-out,*,logoff,failure,,,,User logout failed
+auditd,auditd,was-authorized,success,success,success,,,,PAM account authorization succeeded
+auditd,auditd,was-authorized,*,failure,failure,,,,PAM account authorization failed
+auditd,auditd,error,success,failure,success,,,,User authentication error
+auditd,auditd,error,*,failure,failure,,,,User authentication error
+auditd,auditd,acquired-credentials,success,,success,,,,PAM credentials acquired
+auditd,auditd,acquired-credentials,*,,failure,,,,PAM credentials acquisition failed
+auditd,auditd,refreshed-credentials,success,,success,,,,PAM credentials refreshed
+auditd,auditd,refreshed-credentials,*,,failure,,,,PAM credentials refresh failed
+auditd,auditd,disposed-credentials,success,,success,,,,PAM credentials disposed
+auditd,auditd,disposed-credentials,*,,failure,,,,PAM credentials disposal failed
+auditd,auditd,started-session,success,,success,,,,Session opened
+auditd,auditd,started-session,*,,failure,,,,Session open failed
+auditd,auditd,ended-session,success,,success,,,,Session closed
+auditd,auditd,ended-session,*,,failure,,,,Session close failed
+auditd,auditd,changed-login-id-to,success,,success,,,,Login UID assigned
+auditd,auditd,changed-login-id-to,*,,failure,,,,Login UID assignment failed
+auditd,auditd,added-user-account,success,created,success,AAA,user,,User account created
+auditd,auditd,added-user-account,*,created,failure,AAA,user,,User account creation failed
+auditd,auditd,deleted-user-account,success,deleted,success,AAA,user,,User account deleted
+auditd,auditd,deleted-user-account,*,deleted,failure,AAA,user,,User account deletion failed
+auditd,auditd,modified-user-account,success,modified,success,AAA,user,,User account modified
+auditd,auditd,modified-user-account,*,modified,failure,AAA,user,,User account modification failed
+auditd,auditd,changed-password,success,modified,success,AAA,user,,User password changed
+auditd,auditd,changed-password,*,modified,failure,AAA,user,,User password change failed
+auditd,auditd,locked-account,success,lockout,success,AAA,user,lockout,User account locked
+auditd,auditd,locked-account,*,lockout,failure,AAA,user,lockout,User account lock failed
+auditd,auditd,unlocked-account,success,unlocked,success,AAA,user,,User account unlocked
+auditd,auditd,unlocked-account,*,unlocked,failure,AAA,user,,User account unlock failed
+auditd,auditd,failed-log-in-too-many-times-to,success,lockout,success,AAA,user,lockout,Account locked after too many failed logins
+auditd,auditd,failed-log-in-too-many-times-to,*,lockout,failure,AAA,user,lockout,Account locked after too many failed logins
+auditd,auditd,assigned-user-role-to,success,modified,success,AAA,user,,Role assigned to user
+auditd,auditd,assigned-user-role-to,*,modified,failure,AAA,user,,Role assignment failed
+auditd,auditd,removed-user-role-from,success,modified,success,AAA,user,,Role removed from user
+auditd,auditd,removed-user-role-from,*,modified,failure,AAA,user,,Role removal failed
+auditd,auditd,added-group-account-to,success,created,success,AAA,group,,Group created
+auditd,auditd,added-group-account-to,*,created,failure,AAA,group,,Group creation failed
+auditd,auditd,deleted-group-account-from,success,deleted,success,AAA,group,,Group deleted
+auditd,auditd,deleted-group-account-from,*,deleted,failure,AAA,group,,Group deletion failed
+auditd,auditd,modified-group-account,success,modified,success,AAA,group,,Group modified
+auditd,auditd,modified-group-account,*,modified,failure,AAA,group,,Group modification failed
+auditd,auditd,changed-group-password,success,modified,success,AAA,group,,Group password changed
+auditd,auditd,changed-group-password,*,modified,failure,AAA,group,,Group password change failed
+auditd,auditd,started-service,success,started,started,,service,,Service started
+auditd,auditd,started-service,*,started,critical,,service,,Service failed to start
+auditd,auditd,stopped-service,success,stopped,stopped,,service,,Service stopped
+auditd,auditd,stopped-service,*,stopped,critical,,service,,Service stopped with failure
+auditd,auditd,changed-audit-configuration,success,modified,success,audit,audit_rule,,Audit configuration changed
+auditd,auditd,changed-audit-configuration,*,modified,failure,audit,audit_rule,,Audit configuration change failed
+auditd,auditd,started-audit,success,started,success,audit,service,,Audit daemon started
+auditd,auditd,started-audit,*,started,failure,audit,service,,Audit daemon start failed
+auditd,auditd,shutdown-audit,success,stopped,success,audit,service,,Audit daemon stopped
+auditd,auditd,shutdown-audit,*,stopped,failure,audit,service,,Audit daemon stop failed
+auditd,auditd,booted-system,success,modified,success,restart,host,,System booted
+auditd,auditd,booted-system,*,modified,failure,restart,host,,System boot failed
+auditd,auditd,shutdown-system,success,stopped,success,shutdown,host,,System shutdown
+auditd,auditd,shutdown-system,*,stopped,failure,shutdown,host,,System shutdown failed
+auditd,auditd,opened-file:read,success,read,success,filesystem,file,,File opened for reading
+auditd,auditd,opened-file:read,*,read,failure,filesystem,file,,File open for reading failed
+auditd,auditd,opened-file:modified,success,modified,success,filesystem,file,,File opened for writing
+auditd,auditd,opened-file:modified,*,modified,failure,filesystem,file,,File open for writing failed
+auditd,auditd,opened-file:created,success,created,success,filesystem,file,,File created
+auditd,auditd,opened-file:created,*,created,failure,filesystem,file,,File creation failed
+auditd,auditd,read-file,success,read,success,filesystem,file,,File read
+auditd,auditd,read-file,*,read,failure,filesystem,file,,File read failed
+auditd,auditd,wrote-to-file,success,modified,success,filesystem,file,,File written
+auditd,auditd,wrote-to-file,*,modified,failure,filesystem,file,,File write failed
+auditd,auditd,changed-file-attributes-of,success,acl_modified,success,filesystem,file,,File extended attributes changed
+auditd,auditd,changed-file-attributes-of,*,acl_modified,failure,filesystem,file,,File extended attribute change failed
+auditd,auditd,changed-file-permissions-of,success,acl_modified,success,filesystem,file,,File permissions changed
+auditd,auditd,changed-file-permissions-of,*,acl_modified,failure,filesystem,file,,File permission change failed
+auditd,auditd,changed-file-ownership-of,success,acl_modified,success,filesystem,file,,File ownership changed
+auditd,auditd,changed-file-ownership-of,*,acl_modified,failure,filesystem,file,,File ownership change failed
+auditd,auditd,changed-timestamp-of,success,modified,success,filesystem,file,,File timestamps changed
+auditd,auditd,changed-timestamp-of,*,modified,failure,filesystem,file,,File timestamp change failed
+auditd,auditd,created-directory,success,created,success,filesystem,directory,,Directory created
+auditd,auditd,created-directory,*,created,failure,filesystem,directory,,Directory creation failed
+auditd,auditd,linked,success,created,success,filesystem,file,,Hard link created
+auditd,auditd,linked,*,created,failure,filesystem,file,,Hard link creation failed
+auditd,auditd,symlinked,success,created,success,filesystem,file,,Symbolic link created
+auditd,auditd,symlinked,*,created,failure,filesystem,file,,Symbolic link creation failed
+auditd,auditd,make-device,success,created,success,filesystem,file,,Device node created
+auditd,auditd,make-device,*,created,failure,filesystem,file,,Device node creation failed
+auditd,auditd,deleted,success,deleted,success,filesystem,file,,File deleted
+auditd,auditd,deleted,*,deleted,failure,filesystem,file,,File deletion failed
+auditd,auditd,renamed,success,modified,success,filesystem,file,,File renamed
+auditd,auditd,renamed,*,modified,failure,filesystem,file,,File rename failed
+file_integrity,file,created,*,created,success,filesystem,file,,File created
+file_integrity,file,updated,*,modified,success,filesystem,file,,File modified
+file_integrity,file,moved,*,modified,success,filesystem,file,,File moved or renamed
+file_integrity,file,deleted,*,deleted,success,filesystem,file,,File deleted
+file_integrity,file,attributes_modified,*,acl_modified,success,filesystem,file,,File permissions or attributes changed
+file_integrity,file,initial_scan,*,,,,,,File found during initial scan
+system,process,process_started,*,allowed,success,,,,Process started
+system,process,process_ran,*,allowed,success,,,,Process ran
+system,process,process_changed_image,*,allowed,success,,,,Process executed a new image
+system,process,process_stopped,*,,,,,,Process stopped
+system,process,existing_process,*,,,,,,Process running (state)
+system,process,process_error,*,,failure,,,,Process monitoring error
+system,socket,network_flow,*,allowed,success,,,,Network flow
+system,login,user_login,success,success,success,,,,User logged in
+system,login,user_login,*,failure,failure,,,,User login failed
+system,login,user_logout,*,logoff,success,,,,User logged out
+system,login,boot,*,modified,success,restart,host,,System booted
+system,login,shutdown,*,stopped,success,shutdown,host,,System shutdown
+system,user,user_added,*,created,success,AAA,user,,User account created
+system,user,user_removed,*,deleted,success,AAA,user,,User account removed
+system,user,user_changed,*,modified,success,AAA,user,,User account changed
+system,user,password_changed,*,modified,success,AAA,user,,User password changed
+system,user,existing_user,*,,,,,,Existing user account (state)
+system,package,package_installed,*,created,success,software,package,,Package installed
+system,package,package_removed,*,deleted,success,software,package,,Package removed
+system,package,package_updated,*,updated,success,software,package,,Package updated
+system,package,existing_package,*,,,,,,Installed package (state)
+system,host,host,*,,,,,,Host information (state)
+system,host,reboot,*,modified,success,restart,host,,Host rebooted
+system,host,hostname_changed,*,modified,success,configuration,host,,Hostname changed
+system,host,host_id_changed,*,modified,success,configuration,host,,Host ID changed
+system,host,host_changed,*,modified,success,configuration,host,,Host configuration changed

@@ -1,0 +1,57 @@
+# Lint, package and AppInspect both add-ons on every push and pull request.
+# Pushing a tag v<version> (e.g. v1.0.0) also publishes a GitHub release with
+# the two packages attached.
+name: build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # only used by the release step on tags
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Static checks and packages
+        run: sh tools/build_package.sh
+
+      - name: Splunk AppInspect (precert)
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install --quiet splunk-appinspect
+          for pkg in dist/*.tgz; do
+            .venv/bin/splunk-appinspect inspect "$pkg" --mode precert \
+              --data-format json --output-file "${pkg%.tgz}.appinspect.json"
+          done
+          python3 - dist/*.appinspect.json <<'PY'
+          import json, sys
+          bad = 0
+          for path in sys.argv[1:]:
+              summary = json.load(open(path))["summary"]
+              print(path, summary)
+              bad += summary.get("error", 0) + summary.get("failure", 0)
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: Keep the packages with the run
+        uses: actions/upload-artifact@v4
+        with:
+          name: packages
+          path: dist/*.tgz
+
+      - name: Publish the GitHub release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/*.tgz \
+            --title "$GITHUB_REF_NAME" --generate-notes --verify-tag

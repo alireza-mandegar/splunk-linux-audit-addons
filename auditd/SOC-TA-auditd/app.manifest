@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "2.0.0",
+  "info": {
+    "title": "SOC Linux auditd Add-on for Splunk",
+    "id": {
+      "group": null,
+      "name": "SOC-TA-auditd",
+      "version": "1.0.0"
+    },
+    "author": [
+      {
+        "name": "alireza-mandegar",
+        "email": null,
+        "company": null
+      }
+    ],
+    "releaseDate": "2026-11-22",
+    "description": "Search-time CIM normalization for the Linux audit daemon log (/var/log/audit/audit.log, log_format ENRICHED). Groups the records of each audit event into one Splunk event and populates the Endpoint, Authentication, Change and Network_Traffic data models.",
+    "classification": {
+      "intendedAudience": "Security",
+      "categories": [
+        "Security, Fraud & Compliance",
+        "IT Operations"
+      ],
+      "developmentStatus": "Production/Stable"
+    },
+    "commonInformationModels": {
+      "Authentication": ">=6.0.0",
+      "Change": ">=6.0.0",
+      "Endpoint": ">=6.0.0",
+      "Network Traffic": ">=6.0.0"
+    },
+    "license": {
+      "name": "MIT",
+      "text": "LICENSE.txt",
+      "uri": "https://opensource.org/license/mit"
+    },
+    "privacyPolicy": {
+      "name": null,
+      "text": null,
+      "uri": null
+    },
+    "releaseNotes": {
+      "name": "README",
+      "text": "README.md",
+      "uri": null
+    }
+  },
+  "dependencies": null,
+  "tasks": null,
+  "inputGroups": null,
+  "incompatibleApps": null,
+  "platformRequirements": {
+    "splunk": {
+      "Enterprise": ">=9.0"
+    }
+  },
+  "supportedDeployments": [
+    "_standalone",
+    "_distributed",
+    "_search_head_clustering"
+  ],
+  "targetWorkloads": [
+    "_search_heads",
+    "_indexers"
+  ]
+}

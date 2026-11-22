@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "2.0.0",
+  "info": {
+    "title": "SOC Elastic Auditbeat Add-on for Splunk",
+    "id": {
+      "group": null,
+      "name": "SOC-TA-auditbeat",
+      "version": "1.0.0"
+    },
+    "author": [
+      {
+        "name": "alireza-mandegar",
+        "email": null,
+        "company": null
+      }
+    ],
+    "releaseDate": "2026-10-25",
+    "description": "Search-time CIM normalization for Elastic Auditbeat 8.19.x and 9.x ECS JSON events (auditd, file_integrity and system modules). Populates the Endpoint, Authentication, Change, Network_Traffic and Inventory data models.",
+    "classification": {
+      "intendedAudience": "Security",
+      "categories": [
+        "Security, Fraud & Compliance",
+        "IT Operations"
+      ],
+      "developmentStatus": "Production/Stable"
+    },
+    "commonInformationModels": {
+      "Authentication": ">=6.0.0",
+      "Change": ">=6.0.0",
+      "Endpoint": ">=6.0.0",
+      "Inventory": ">=6.0.0",
+      "Network Traffic": ">=6.0.0"
+    },
+    "license": {
+      "name": "MIT",
+      "text": "LICENSE.txt",
+      "uri": "https://opensource.org/license/mit"
+    },
+    "privacyPolicy": {
+      "name": null,
+      "text": null,
+      "uri": null
+    },
+    "releaseNotes": {
+      "name": "README",
+      "text": "README.md",
+      "uri": null
+    }
+  },
+  "dependencies": null,
+  "tasks": null,
+  "inputGroups": null,
+  "incompatibleApps": null,
+  "platformRequirements": {
+    "splunk": {
+      "Enterprise": ">=9.0"
+    }
+  },
+  "supportedDeployments": [
+    "_standalone",
+    "_distributed",
+    "_search_head_clustering"
+  ],
+  "targetWorkloads": [
+    "_search_heads",
+    "_indexers"
+  ]
+}

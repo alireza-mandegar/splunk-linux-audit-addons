@@ -1,0 +1,167 @@
+auditd_action,auditd_outcome,action,status,change_type,object_category,result,signature
+execve,success,allowed,success,,,,Process executed
+execve,*,blocked,failure,,,,Process execution failed
+execveat,success,allowed,success,,,,Process executed
+execveat,*,blocked,failure,,,,Process execution failed
+USER_CMD,success,allowed,success,,,,Command run via sudo
+USER_CMD,*,blocked,failure,,,,Command via sudo failed
+connect,success,allowed,success,,,,Outbound network connection
+connect,*,blocked,failure,,,,Outbound network connection failed
+accept,success,allowed,success,,,,Inbound network connection accepted
+accept,*,blocked,failure,,,,Inbound network connection failed
+accept4,success,allowed,success,,,,Inbound network connection accepted
+accept4,*,blocked,failure,,,,Inbound network connection failed
+bind,success,,success,,,,Socket bound to local address
+bind,*,,failure,,,,Socket bind failed
+listen,success,,success,,,,Socket listening for connections
+listen,*,,failure,,,,Socket listen failed
+SERVICE_START,success,started,started,,service,,Service started
+SERVICE_START,*,started,critical,,service,,Service failed to start
+SERVICE_STOP,success,stopped,stopped,,service,,Service stopped
+SERVICE_STOP,*,stopped,critical,,service,,Service stopped with failure
+USER_AUTH,success,success,success,,,,PAM authentication succeeded
+USER_AUTH,*,failure,failure,,,,PAM authentication failed
+USER_LOGIN,success,success,success,,,,User logged in
+USER_LOGIN,*,failure,failure,,,,User login failed
+USER_LOGOUT,success,logoff,success,,,,User logged out
+USER_LOGOUT,*,logoff,failure,,,,User logout failed
+USER_ACCT,success,success,success,,,,PAM account authorization succeeded
+USER_ACCT,*,failure,failure,,,,PAM account authorization failed
+USER_ERR,success,failure,success,,,,User authentication error
+USER_ERR,*,failure,failure,,,,User authentication error
+CRED_ACQ,success,,success,,,,PAM credentials acquired
+CRED_ACQ,*,,failure,,,,PAM credentials acquisition failed
+CRED_REFR,success,,success,,,,PAM credentials refreshed
+CRED_REFR,*,,failure,,,,PAM credentials refresh failed
+CRED_DISP,success,,success,,,,PAM credentials disposed
+CRED_DISP,*,,failure,,,,PAM credentials disposal failed
+USER_START,success,,success,,,,Session opened
+USER_START,*,,failure,,,,Session open failed
+USER_END,success,,success,,,,Session closed
+USER_END,*,,failure,,,,Session close failed
+LOGIN,success,,success,,,,Login UID assigned
+LOGIN,*,,failure,,,,Login UID assignment failed
+ADD_USER,success,created,success,AAA,user,,User account created
+ADD_USER,*,created,failure,AAA,user,,User account creation failed
+DEL_USER,success,deleted,success,AAA,user,,User account deleted
+DEL_USER,*,deleted,failure,AAA,user,,User account deletion failed
+USER_MGMT,success,modified,success,AAA,user,,User account modified
+USER_MGMT,*,modified,failure,AAA,user,,User account modification failed
+USER_CHAUTHTOK,success,modified,success,AAA,user,,User password changed
+USER_CHAUTHTOK,*,modified,failure,AAA,user,,User password change failed
+ACCT_LOCK,success,lockout,success,AAA,user,lockout,User account locked
+ACCT_LOCK,*,lockout,failure,AAA,user,lockout,User account lock failed
+ACCT_UNLOCK,success,unlocked,success,AAA,user,,User account unlocked
+ACCT_UNLOCK,*,unlocked,failure,AAA,user,,User account unlock failed
+ANOM_LOGIN_FAILURES,*,lockout,success,AAA,user,lockout,Account locked after too many failed logins
+ROLE_ASSIGN,success,modified,success,AAA,user,,Role assigned to user
+ROLE_ASSIGN,*,modified,failure,AAA,user,,Role assignment failed
+ROLE_REMOVE,success,modified,success,AAA,user,,Role removed from user
+ROLE_REMOVE,*,modified,failure,AAA,user,,Role removal failed
+ADD_GROUP,success,created,success,AAA,group,,Group created
+ADD_GROUP,*,created,failure,AAA,group,,Group creation failed
+DEL_GROUP,success,deleted,success,AAA,group,,Group deleted
+DEL_GROUP,*,deleted,failure,AAA,group,,Group deletion failed
+GRP_MGMT,success,modified,success,AAA,group,,Group modified
+GRP_MGMT,*,modified,failure,AAA,group,,Group modification failed
+GRP_CHAUTHTOK,success,modified,success,AAA,group,,Group password changed
+GRP_CHAUTHTOK,*,modified,failure,AAA,group,,Group password change failed
+CONFIG_CHANGE,success,modified,success,audit,audit_rule,,Audit configuration changed
+CONFIG_CHANGE,*,modified,failure,audit,audit_rule,,Audit configuration change failed
+DAEMON_START,success,started,success,audit,service,,Audit daemon started
+DAEMON_START,*,started,failure,audit,service,,Audit daemon start failed
+DAEMON_END,success,stopped,success,audit,service,,Audit daemon stopped
+DAEMON_END,*,stopped,failure,audit,service,,Audit daemon stop failed
+DAEMON_ABORT,*,stopped,failure,audit,service,,Audit daemon aborted
+SOFTWARE_UPDATE:install,success,created,success,software,package,,Package installed
+SOFTWARE_UPDATE:install,*,created,failure,software,package,,Package install failed
+SOFTWARE_UPDATE:update,success,updated,success,software,package,,Package updated
+SOFTWARE_UPDATE:update,*,updated,failure,software,package,,Package update failed
+SOFTWARE_UPDATE:remove,success,deleted,success,software,package,,Package removed
+SOFTWARE_UPDATE:remove,*,deleted,failure,software,package,,Package removal failed
+SYSTEM_BOOT,success,modified,success,restart,host,,System booted
+SYSTEM_BOOT,*,modified,failure,restart,host,,System boot failed
+SYSTEM_SHUTDOWN,success,stopped,success,shutdown,host,,System shutdown
+SYSTEM_SHUTDOWN,*,stopped,failure,shutdown,host,,System shutdown failed
+open:read,success,read,success,filesystem,file,,File opened for reading
+open:read,*,read,failure,filesystem,file,,File open for reading failed
+open:modified,success,modified,success,filesystem,file,,File opened for writing
+open:modified,*,modified,failure,filesystem,file,,File open for writing failed
+open:created,success,created,success,filesystem,file,,File created
+open:created,*,created,failure,filesystem,file,,File creation failed
+truncate,success,modified,success,filesystem,file,,File truncated
+truncate,*,modified,failure,filesystem,file,,File truncation failed
+ftruncate,success,modified,success,filesystem,file,,File truncated
+ftruncate,*,modified,failure,filesystem,file,,File truncation failed
+fallocate,success,modified,success,filesystem,file,,File space allocated
+fallocate,*,modified,failure,filesystem,file,,File space allocation failed
+unlink,success,deleted,success,filesystem,file,,File deleted
+unlink,*,deleted,failure,filesystem,file,,File deletion failed
+unlinkat,success,deleted,success,filesystem,file,,File deleted
+unlinkat,*,deleted,failure,filesystem,file,,File deletion failed
+rmdir,success,deleted,success,filesystem,directory,,Directory deleted
+rmdir,*,deleted,failure,filesystem,directory,,Directory deletion failed
+rename,success,modified,success,filesystem,file,,File renamed
+rename,*,modified,failure,filesystem,file,,File rename failed
+renameat,success,modified,success,filesystem,file,,File renamed
+renameat,*,modified,failure,filesystem,file,,File rename failed
+renameat2,success,modified,success,filesystem,file,,File renamed
+renameat2,*,modified,failure,filesystem,file,,File rename failed
+mkdir,success,created,success,filesystem,directory,,Directory created
+mkdir,*,created,failure,filesystem,directory,,Directory creation failed
+mkdirat,success,created,success,filesystem,directory,,Directory created
+mkdirat,*,created,failure,filesystem,directory,,Directory creation failed
+link,success,created,success,filesystem,file,,Hard link created
+link,*,created,failure,filesystem,file,,Hard link creation failed
+linkat,success,created,success,filesystem,file,,Hard link created
+linkat,*,created,failure,filesystem,file,,Hard link creation failed
+symlink,success,created,success,filesystem,file,,Symbolic link created
+symlink,*,created,failure,filesystem,file,,Symbolic link creation failed
+symlinkat,success,created,success,filesystem,file,,Symbolic link created
+symlinkat,*,created,failure,filesystem,file,,Symbolic link creation failed
+mknod,success,created,success,filesystem,file,,Device node created
+mknod,*,created,failure,filesystem,file,,Device node creation failed
+mknodat,success,created,success,filesystem,file,,Device node created
+mknodat,*,created,failure,filesystem,file,,Device node creation failed
+chmod,success,acl_modified,success,filesystem,file,,File permissions changed
+chmod,*,acl_modified,failure,filesystem,file,,File permission change failed
+fchmod,success,acl_modified,success,filesystem,file,,File permissions changed
+fchmod,*,acl_modified,failure,filesystem,file,,File permission change failed
+fchmodat,success,acl_modified,success,filesystem,file,,File permissions changed
+fchmodat,*,acl_modified,failure,filesystem,file,,File permission change failed
+fchmodat2,success,acl_modified,success,filesystem,file,,File permissions changed
+fchmodat2,*,acl_modified,failure,filesystem,file,,File permission change failed
+chown,success,acl_modified,success,filesystem,file,,File ownership changed
+chown,*,acl_modified,failure,filesystem,file,,File ownership change failed
+fchown,success,acl_modified,success,filesystem,file,,File ownership changed
+fchown,*,acl_modified,failure,filesystem,file,,File ownership change failed
+lchown,success,acl_modified,success,filesystem,file,,File ownership changed
+lchown,*,acl_modified,failure,filesystem,file,,File ownership change failed
+fchownat,success,acl_modified,success,filesystem,file,,File ownership changed
+fchownat,*,acl_modified,failure,filesystem,file,,File ownership change failed
+setxattr,success,acl_modified,success,filesystem,file,,File extended attributes changed
+setxattr,*,acl_modified,failure,filesystem,file,,File extended attribute change failed
+lsetxattr,success,acl_modified,success,filesystem,file,,File extended attributes changed
+lsetxattr,*,acl_modified,failure,filesystem,file,,File extended attribute change failed
+fsetxattr,success,acl_modified,success,filesystem,file,,File extended attributes changed
+fsetxattr,*,acl_modified,failure,filesystem,file,,File extended attribute change failed
+removexattr,success,acl_modified,success,filesystem,file,,File extended attributes changed
+removexattr,*,acl_modified,failure,filesystem,file,,File extended attribute change failed
+lremovexattr,success,acl_modified,success,filesystem,file,,File extended attributes changed
+lremovexattr,*,acl_modified,failure,filesystem,file,,File extended attribute change failed
+fremovexattr,success,acl_modified,success,filesystem,file,,File extended attributes changed
+fremovexattr,*,acl_modified,failure,filesystem,file,,File extended attribute change failed
+utime,success,modified,success,filesystem,file,,File timestamps changed
+utime,*,modified,failure,filesystem,file,,File timestamp change failed
+utimes,success,modified,success,filesystem,file,,File timestamps changed
+utimes,*,modified,failure,filesystem,file,,File timestamp change failed
+utimensat,success,modified,success,filesystem,file,,File timestamps changed
+utimensat,*,modified,failure,filesystem,file,,File timestamp change failed
+futimesat,success,modified,success,filesystem,file,,File timestamps changed
+futimesat,*,modified,failure,filesystem,file,,File timestamp change failed
+init_module,success,,success,,,,Kernel module loaded
+init_module,*,,failure,,,,Kernel module load failed
+finit_module,success,,success,,,,Kernel module loaded
+finit_module,*,,failure,,,,Kernel module load failed
+delete_module,success,,success,,,,Kernel module unloaded
+delete_module,*,,failure,,,,Kernel module unload failed

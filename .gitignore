@@ -1,0 +1,19 @@
+# build output
+dist/
+*.tgz
+*.spl
+
+# private notes and working files: never published
+_private/
+
+# local Splunk configuration and test credentials
+local/
+local.meta
+*.pw
+*password*
+
+# Python / OS noise
+__pycache__/
+*.pyc
+.venv/
+.DS_Store

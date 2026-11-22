@@ -1,0 +1,218 @@
+auditd_message_type,auditd_message_type_id,auditd_message_type_description
+get,1000,Get status
+set,1001,Set status (enable/disable/auditd)
+list,1002,List syscall rules -- deprecated
+add,1003,Add syscall rule -- deprecated
+del,1004,Delete syscall rule -- deprecated
+user,1005,Message from userspace -- deprecated
+login,1006,Define the login id and information
+watch_ins,1007,Insert file/dir watch entry
+watch_rem,1008,Remove file/dir watch entry
+watch_list,1009,List all file/dir watches
+signal_info,1010,Get info about sender of signal to auditd
+add_rule,1011,Add syscall filtering rule
+del_rule,1012,Delete syscall filtering rule
+list_rules,1013,List syscall filtering rules
+trim,1014,Trim junk from watched tree
+make_equiv,1015,Append to watched tree
+tty_get,1016,Get TTY auditing status
+tty_set,1017,Set TTY auditing status
+set_feature,1018,Turn an audit feature on or off
+get_feature,1019,Get which features are enabled
+user_auth,1100,User system access authentication
+user_acct,1101,User system access authorization
+user_mgmt,1102,User acct attribute change
+cred_acq,1103,User credential acquired
+cred_disp,1104,User credential disposed
+user_start,1105,User session start
+user_end,1106,User session end
+user_avc,1107,User space avc message
+user_chauthtok,1108,User acct password or pin changed
+user_err,1109,User acct state error
+cred_refr,1110,User credential refreshed
+usys_config,1111,User space system config change
+user_login,1112,User has logged in
+user_logout,1113,User has logged out
+add_user,1114,User account added
+del_user,1115,User account deleted
+add_group,1116,Group account added
+del_group,1117,Group account deleted
+dac_check,1118,User space DAC check results
+chgrp_id,1119,User space group ID changed
+test,1120,Used for test success messages
+trusted_app,1121,Trusted app msg - freestyle text
+user_selinux_err,1122,SE Linux user space error
+user_cmd,1123,User shell command and args
+user_tty,1124,Non-ICANON TTY input meaning
+chuser_id,1125,Changed user ID supplemental data
+grp_auth,1126,Authentication for group password
+system_boot,1127,System boot
+system_shutdown,1128,System shutdown
+system_runlevel,1129,System runlevel change
+service_start,1130,Service (daemon) start
+service_stop,1131,Service (daemon) stop
+grp_mgmt,1132,Group account attr was modified
+grp_chauthtok,1133,Group acct password or pin changed
+mac_check,1134,User space MAC decision results
+acct_lock,1135,User's account locked by admin
+acct_unlock,1136,User's account unlocked by admin
+user_device,1137,User space hotplug device changes
+software_update,1138,Software update event
+daemon_start,1200,Daemon startup record
+daemon_end,1201,Daemon normal stop record
+daemon_abort,1202,Daemon error stop record
+daemon_config,1203,Daemon config change
+daemon_reconfig,1204,Auditd should reconfigure
+daemon_rotate,1205,Auditd should rotate logs
+daemon_resume,1206,Auditd should resume logging
+daemon_accept,1207,Auditd accepted remote connection
+daemon_close,1208,Auditd closed remote connection
+daemon_err,1209,Auditd internal error
+syscall,1300,Syscall event
+path,1302,Filename path information
+ipc,1303,IPC record
+socketcall,1304,sys_socketcall arguments
+config_change,1305,Audit system configuration change
+sockaddr,1306,sockaddr copied as syscall arg
+cwd,1307,Current working directory
+execve,1309,execve arguments
+ipc_set_perm,1311,IPC new permissions record type
+mq_open,1312,POSIX MQ open record type
+mq_sendrecv,1313,POSIX MQ send/receive record type
+mq_notify,1314,POSIX MQ notify record type
+mq_getsetattr,1315,POSIX MQ get/set attribute record type
+kernel_other,1316,For use by 3rd party modules
+fd_pair,1317,audit record for pipe/socketpair
+obj_pid,1318,ptrace target
+tty,1319,Input on an administrative TTY
+eoe,1320,End of multi-record event
+bprm_fcaps,1321,Information about fcaps increasing perms
+capset,1322,Record showing argument to sys_capset
+mmap,1323,Record showing descriptor and flags in mmap
+netfilter_pkt,1324,Packets traversing netfilter chains
+netfilter_cfg,1325,Netfilter chain modifications
+seccomp,1326,Secure Computing event
+proctitle,1327,Proctitle emit event
+feature_change,1328,audit log listing feature changes
+replace,1329,Replace auditd if this packet unanswerd
+kern_module,1330,Kernel Module events
+fanotify,1331,Fanotify access decision
+time_injoffset,1332,Timekeeping offset injected
+time_adjntpval,1333,NTP value adjustment
+bpf,1334,BPF load/unload
+event_listener,1335,audit mcast sock join/part
+uringop,1336,io_uring operations
+openat2,1337,openat2 open_how flags
+dm_ctrl,1338,Device Mapper target control
+dm_event,1339,Device Mapper events
+avc,1400,SE Linux avc denial or grant
+selinux_err,1401,Internal SE Linux Errors
+avc_path,1402,"dentry, vfsmount pair from avc"
+mac_policy_load,1403,Policy file load
+mac_status,1404,"Changed enforcing,permissive,off"
+mac_config_change,1405,Changes to booleans
+mac_unlbl_allow,1406,NetLabel: allow unlabeled traffic
+mac_cipsov4_add,1407,NetLabel: add CIPSOv4 DOI entry
+mac_cipsov4_del,1408,NetLabel: del CIPSOv4 DOI entry
+mac_map_add,1409,NetLabel: add LSM domain mapping
+mac_map_del,1410,NetLabel: del LSM domain mapping
+mac_ipsec_addsa,1411,Not used
+mac_ipsec_delsa,1412,Not used
+mac_ipsec_addspd,1413,Not used
+mac_ipsec_delspd,1414,Not used
+mac_ipsec_event,1415,Audit an IPSec event
+mac_unlbl_stcadd,1416,NetLabel: add a static label
+mac_unlbl_stcdel,1417,NetLabel: del a static label
+mac_calipso_add,1418,NetLabel: add CALIPSO DOI entry
+mac_calipso_del,1419,NetLabel: del CALIPSO DOI entry
+aa,1500,Not upstream yet
+apparmor_audit,1501,Apparmor audit
+apparmor_allowed,1502,Apparmor allowed
+apparmor_denied,1503,Apparmor denied
+apparmor_hint,1504,Apparmor hint
+apparmor_status,1505,Apparmor status
+apparmor_error,1506,Apparmor error
+apparmor_kill,1507,Apparmor kill
+anom_promiscuous,1700,Device changed promiscuous mode
+anom_abend,1701,Process ended abnormally
+anom_link,1702,Suspicious use of file links
+anom_creat,1703,Suspicious file creation
+integrity_data,1800,Data integrity verification
+integrity_metadata,1801,Metadata integrity verification
+integrity_status,1802,Integrity enable status
+integrity_hash,1803,Integrity HASH type
+integrity_pcr,1804,PCR invalidation msgs
+integrity_rule,1805,Policy rule
+integrity_evm_xattr,1806,New EVM-covered xattr
+integrity_policy_rule,1807,Integrity Policy rule
+kernel,2000,Asynchronous audit record. NOT A REQUEST
+anom_login_failures,2100,Failed login limit reached
+anom_login_time,2101,Login attempted at bad time
+anom_login_sessions,2102,Max concurrent sessions reached
+anom_login_acct,2103,Login attempted to watched acct
+anom_login_location,2104,Login from forbidden location
+anom_max_dac,2105,Max DAC failures reached
+anom_max_mac,2106,Max MAC failures reached
+anom_amtu_fail,2107,AMTU failure
+anom_rbac_fail,2108,RBAC self test failure
+anom_rbac_integrity_fail,2109,RBAC file integrity failure
+anom_crypto_fail,2110,Crypto system test failure
+anom_access_fs,2111,Access of file or dir
+anom_exec,2112,Execution of file
+anom_mk_exec,2113,Anom mk exec
+anom_add_acct,2114,Adding an acct
+anom_del_acct,2115,Deleting an acct
+anom_mod_acct,2116,Changing an acct
+anom_root_trans,2117,User became root
+anom_login_service,2118,Service acct attempted login
+anom_login_root,2119,Anom login root
+anom_origin_failures,2120,Anom origin failures
+anom_session,2121,Anom session
+resp_anomaly,2200,Anomaly not reacted to
+resp_alert,2201,Alert email was sent
+resp_kill_proc,2202,Kill program
+resp_term_access,2203,Terminate session
+resp_acct_remote,2204,Acct locked from remote access
+resp_acct_lock_timed,2205,User acct locked for time
+resp_acct_unlock_timed,2206,User acct unlocked from time
+resp_acct_lock,2207,User acct was locked
+resp_term_lock,2208,Terminal was locked
+resp_sebool,2209,Set an SE Linux boolean
+resp_exec,2210,Execute a script
+resp_single,2211,Go to single user mode
+resp_halt,2212,take the system down
+resp_origin_block,2213,Address blocked by iptables
+resp_origin_block_timed,2214,Address blocked for time
+resp_origin_unblock_timed,2215,Address unblocked from timed
+user_role_change,2300,User changed to a new role
+role_assign,2301,Admin assigned user to role
+role_remove,2302,Admin removed user from role
+label_override,2303,Admin is overriding a label
+label_level_change,2304,Object's level was changed
+user_labeled_export,2305,Object exported with label
+user_unlabeled_export,2306,Object exported without label
+dev_alloc,2307,Device was allocated
+dev_dealloc,2308,Device was deallocated
+fs_relabel,2309,Filesystem relabeled
+user_mac_policy_load,2310,Userspc daemon loaded policy
+role_modify,2311,Admin modified a role
+user_mac_config_change,2312,Change made to MAC policy
+user_mac_status,2313,Userspc daemon enforcing change
+crypto_test_user,2400,Crypto test results
+crypto_param_change_user,2401,Crypto attribute change
+crypto_login,2402,Logged in as crypto officer
+crypto_logout,2403,Logged out from crypto
+crypto_key_user,2404,"Create,delete,negotiate"
+crypto_failure_user,2405,"Fail decrypt,encrypt,randomiz"
+crypto_replay_user,2406,Crypto replay detected
+crypto_session,2407,Crypto session
+crypto_ike_sa,2408,Crypto ike sa
+crypto_ipsec_sa,2409,Crypto ipsec sa
+virt_control,2500,"Start,Pause,Stop VM/container"
+virt_resource,2501,Resource assignment
+virt_machine_id,2502,Binding of label to VM/cont
+virt_integrity_check,2503,Guest integrity results
+virt_create,2504,Creation of guest image
+virt_destroy,2505,Destruction of guest image
+virt_migrate_in,2506,Inbound guest migration info
+virt_migrate_out,2507,Outbound guest migration info

@@ -1,0 +1,11 @@
+###############################################################################
+# SOC-TA-auditd default.meta
+# Knowledge objects are exported globally so that the CIM data models,
+# Enterprise Security and every other app see the field extractions,
+# eventtypes and tags (same approach as Splunk_TA_windows).
+###############################################################################
+
+[]
+owner = nobody
+access = read : [ * ], write : [ admin, sc_admin ]
+export = system
