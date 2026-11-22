@@ -19,7 +19,12 @@ jobs:
     permissions:
       contents: write   # only used by the release step on tags
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+
+      # AppInspect's lxml dependency has no wheels for the runner's default Python.
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
 
       - name: Static checks and packages
         run: sh tools/build_package.sh
@@ -36,14 +41,22 @@ jobs:
           import json, sys
           bad = 0
           for path in sys.argv[1:]:
-              summary = json.load(open(path))["summary"]
+              report = json.load(open(path))
+              summary = report.get("summary") or report["reports"][0]["summary"]
               print(path, summary)
+              for r in report.get("reports", []):
+                  for group in r.get("groups", []):
+                      for check in group.get("checks", []):
+                          if check.get("result") in ("failure", "error"):
+                              print("  ", check["result"].upper(), check.get("name"))
+                              for m in check.get("messages", []):
+                                  print("      ", m.get("message"))
               bad += summary.get("error", 0) + summary.get("failure", 0)
           sys.exit(1 if bad else 0)
           PY
 
       - name: Keep the packages with the run
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: packages
           path: dist/*.tgz
